@@ -503,3 +503,107 @@ footer p {
     margin: 0 10px;
     font-weight: bold;
 }
+/* ==================================== */
+/* 9. تنسيقات الاستجابة للشاشات الصغيرة (الجوال) */
+/* ==================================== */
+
+@media (max-width: 768px) {
+    /* 9.1 تعديل عام للمسافات لتناسب الجوال */
+    header {
+        padding: 10px 20px; /* تقليل المسافة في الهيدر */
+    }
+
+    main {
+        padding: 20px 15px; /* تقليل المسافة في المحتوى الرئيسي */
+    }
+
+    /* 9.2 تعديل شريط التنقل (Header) */
+    header {
+        /* تحويل التنقل إلى عرض عمودي لضمان وضوح الأزرار */
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+
+    .logo-container {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    header h1 {
+        font-size: 16px;
+    }
+    
+    nav {
+        order: 1; /* جعل شريط التنقل يظهر بعد الشعار */
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+    
+    nav a {
+        font-size: 14px;
+        margin: 0 8px; /* تقليل المسافة بين الروابط */
+    }
+
+    .cta-button {
+        order: 2; /* جعل زر الانضمام يظهر أسفل الكل */
+        width: 100%; 
+        text-align: center;
+        margin-top: 10px;
+        padding: 10px 0;
+    }
+    
+    /* 9.3 تنسيق البطاقات (الفعاليات والإنجازات) */
+    .card-container {
+        flex-direction: column; /* جعل البطاقات تظهر تحت بعضها البعض */
+        gap: 15px;
+    }
+
+    .card {
+        width: 100%; /* جعل البطاقة تأخذ عرض الشاشة بالكامل */
+    }
+
+    /* 9.4 تنسيق شبكة صور الفعاليات (لجعلها أسهل للقراءة) */
+    .event-photo-grid img {
+        height: 80px; /* تقليل ارتفاع الصور */
+    }
+
+    /* 9.5 تنسيق قسم شخصية الأسبوع */
+    .personality-card {
+        flex-direction: column; /* جعل الصورة والتفاصيل تظهر تحت بعضها */
+        text-align: center;
+    }
+    
+    .image-placeholder {
+        margin-bottom: 15px;
+        margin-left: 0;
+    }
+
+    .person-details {
+        text-align: center;
+    }
+
+    .achievements-list li {
+        text-align: right;
+        border-right-width: 5px;
+        padding-right: 15px;
+        font-size: 14px;
+    }
+    
+    /* 9.6 تنسيق الهيكل التنظيمي */
+    .committees-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .committee {
+        width: 90%; /* إعطاؤه عرضاً مناسباً */
+    }
+
+    /* 9.7 تنسيق نموذج الانضمام */
+    .join-form {
+        margin: 20px 0;
+        padding: 20px;
+    }
+}
