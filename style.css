@@ -1,11 +1,11 @@
 /* ==================================== */
-/* 1. الإعدادات الأساسية والثوابت (Variables) - تم تأكيد الألوان من دليل الهوية */
+/* 1. الإعدادات الأساسية والثوابت (Variables) */
 /* ==================================== */
 :root {
     --primary-dark: #3A454E; /* اللون الأساسي (غامق) من دليل الهوية */
     --accent-orange: #FDB04C; /* اللون المميز (البرتقالي/الذهبي) من دليل الهوية */
-    --bg-light: #f4f4f4; /* خلفية فاتحة */
     --bg-white: #ffffff; /* خلفية بيضاء */
+    --bg-light: #f4f4f4; /* خلفية فاتحة */
     --text-color: #333; /* لون النص الأساسي */
 }
 
@@ -50,6 +50,9 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky; /* لجعل الشريط ثابتاً أثناء التمرير */
+    top: 0;
+    z-index: 1000;
 }
 
 .logo-container {
@@ -166,9 +169,17 @@ section h3 {
     font-size: 20px;
 }
 
+/* تنسيق بطاقة الفعالية مع شبكة الصور */
+.card.event-card-with-grid {
+    /* السماح للبطاقة بأن تكون مرنة */
+    flex: 1; 
+    min-width: 350px;
+}
+
 .event-photo-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /* على شاشات الكمبيوتر، 4 صور في الصف */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 10px;
     margin-top: 20px;
 }
@@ -188,7 +199,7 @@ section h3 {
 }
 
 /* ==================================== */
-/* 5. تنسيق الهيكل التنظيمي (Org Chart) - المحدث */
+/* 5. تنسيق الهيكل التنظيمي (Org Chart) */
 /* ==================================== */
 .org-chart {
     padding-top: 40px;
@@ -294,7 +305,7 @@ section h3 {
 
 
 /* ==================================== */
-/* 6. تنسيق نموذج التواصل (Contact Form) */
+/* 6. تنسيق نموذج التواصل (Contact Form) والباركود */
 /* ==================================== */
 .join-form, .contact-info {
     background-color: var(--bg-white);
@@ -340,6 +351,32 @@ form textarea {
     font-size: 18px;
 }
 
+/* تنسيق الباركود */
+.linktree-qr {
+    text-align: center; 
+    padding: 30px;
+    background-color: var(--bg-white); 
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    border: 1px solid #eee;
+}
+
+.linktree-qr h3 {
+    color: var(--primary-dark);
+    margin-bottom: 5px;
+    border-bottom: none;
+}
+
+.qr-code-img {
+    max-width: 200px; 
+    height: auto;
+    border: 5px solid #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
 /* ==================================== */
 /* 7. تنسيق بطاقة شخصية الأسبوع (Weekly Personality) */
 /* ==================================== */
@@ -360,7 +397,7 @@ form textarea {
     width: 250px;
     height: 250px;
     overflow: hidden;
-    border-radius: 50%; /* لجعل الصورة دائرية */
+    border-radius: 50%;
     margin-left: 30px;
     flex-shrink: 0;
     border: 5px solid var(--accent-orange);
@@ -404,36 +441,7 @@ form textarea {
 }
 
 /* ==================================== */
-/* 8. تنسيق الباركود (Linktree QR Code) - مُضاف حديثاً */
-/* ==================================== */
-.linktree-qr {
-    text-align: center; /* توسيط النص والصورة */
-    padding: 30px;
-    background-color: var(--bg-white); 
-    border-radius: 8px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* ظل خفيف */
-    border: 1px solid #eee;
-}
-
-.linktree-qr h3 {
-    color: var(--primary-dark);
-    margin-bottom: 5px;
-    border-bottom: none;
-}
-
-.qr-code-img {
-    max-width: 200px; /* تحديد أقصى حجم للصورة على شاشات الكمبيوتر */
-    height: auto;
-    border: 5px solid #fff; /* إطار أبيض حول الباركود */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    border-radius: 8px;
-}
-
-
-/* ==================================== */
-/* 9. تنسيق الفوتر (Footer) */
+/* 8. تنسيق الفوتر (Footer) */
 /* ==================================== */
 footer {
     background-color: var(--primary-dark);
@@ -449,11 +457,11 @@ footer a {
 }
 
 /* ==================================== */
-/* 10. تنسيقات الاستجابة للشاشات الصغيرة (الجوال) */
+/* 9. تنسيقات الاستجابة للشاشات الصغيرة (الجوال) */
 /* ==================================== */
 
 @media (max-width: 768px) {
-    /* 10.1 تعديل عام للمسافات */
+    /* 9.1 تعديل عام للمسافات */
     header {
         padding: 10px 15px;
     }
@@ -461,8 +469,12 @@ footer a {
     main {
         padding: 20px 10px; 
     }
+    
+    .page-header h2 {
+        font-size: 28px;
+    }
 
-    /* 10.2 تنسيق شريط التنقل (Header) */
+    /* 9.2 تنسيق شريط التنقل (Header) */
     header {
         flex-direction: column; 
         align-items: flex-start; 
@@ -506,7 +518,7 @@ footer a {
         padding: 10px 0;
     }
     
-    /* 10.3 تنسيق البطاقات */
+    /* 9.3 تنسيق البطاقات */
     .card-container {
         flex-direction: column;
         gap: 15px;
@@ -514,9 +526,13 @@ footer a {
 
     .card {
         width: 100%;
+        min-width: unset; /* إلغاء الحد الأدنى للعرض */
+    }
+    .card.event-card-with-grid {
+        min-width: unset; /* إلغاء الحد الأدنى للعرض */
     }
 
-    /* 10.4 تنسيق قسم شخصية الأسبوع */
+    /* 9.4 تنسيق قسم شخصية الأسبوع */
     .personality-card {
         flex-direction: column;
         padding: 20px;
@@ -526,24 +542,19 @@ footer a {
     .image-placeholder {
         margin-bottom: 20px;
         margin-left: 0;
+        width: 150px;
+        height: 150px;
     }
     
     .person-photo {
-        max-width: 150px;
+        max-width: 100%;
     }
 
     .person-details {
         text-align: right;
     }
     
-    .achievements-list li {
-        text-align: right;
-        border-right-width: 5px;
-        padding-right: 15px;
-        font-size: 15px;
-    }
-
-    /* 10.5 تنسيق الهيكل التنظيمي (Org Chart) */
+    /* 9.5 تنسيق الهيكل التنظيمي (Org Chart) */
     .org-leadership {
         gap: 10px;
         margin-bottom: 40px;
@@ -552,10 +563,6 @@ footer a {
     .role-box {
         min-width: 90%;
         padding: 10px 20px;
-    }
-
-    .primary-role h4 {
-        font-size: 20px;
     }
     
     .committees-container {
@@ -568,20 +575,17 @@ footer a {
         width: 90%;
     }
 
-    .committee-head {
-        font-size: 16px;
-    }
-    
-    /* 10.6 تنسيق الباركود */
+    /* 9.6 تنسيق الباركود */
     .qr-code-img {
         max-width: 150px; 
     }
 
-    /* 10.7 تنسيق شبكة صور الفعاليات */
+    /* 9.7 تنسيق شبكة صور الفعاليات */
     .event-photo-grid {
-        grid-template-columns: repeat(2, 1fr); /* عرض صورتين فقط في الصف */
+        /* عرض صورتين فقط في الصف بدلاً من 4 */
+        grid-template-columns: repeat(2, 1fr); 
     }
     .event-photo-grid img {
-        height: 120px;
+        height: 100px;
     }
 }
