@@ -1,13 +1,12 @@
 /* ==================================== */
-/* 1. التنسيقات الأساسية وتطبيق الألوان */
+/* 1. الإعدادات الأساسية والثوابت (Variables) - تم تأكيد الألوان من دليل الهوية */
 /* ==================================== */
 :root {
-    /* تعريف متغيرات الألوان لهوية نادي إدراك (الأزرق الداكن والبرتقالي) */
-    --primary-dark: #3A454E; 
-    --accent-orange: #FDB04C; 
-    --text-color: #000000; 
-    --bg-white: #FFFFFF; 
-    --bg-light: #DFDCDA; 
+    --primary-dark: #3A454E; /* اللون الأساسي (غامق) من دليل الهوية */
+    --accent-orange: #FDB04C; /* اللون المميز (البرتقالي/الذهبي) من دليل الهوية */
+    --bg-light: #f4f4f4; /* خلفية فاتحة */
+    --bg-white: #ffffff; /* خلفية بيضاء */
+    --text-color: #333; /* لون النص الأساسي */
 }
 
 * {
@@ -17,273 +16,183 @@
 }
 
 body {
-    font-family: Arial, sans-serif; 
-    background-color: var(--bg-white);
+    font-family: 'Arial', sans-serif;
     color: var(--text-color);
-    direction: rtl; 
-    text-align: right;
-    line-height: 1.6; 
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    direction: rtl; /* اتجاه من اليمين لليسار */
 }
 
-h1, h2, h3, h4 {
+a {
+    text-decoration: none;
     color: var(--primary-dark);
-    margin-bottom: 0.5em; 
-    font-weight: bold; 
+    transition: color 0.3s ease;
 }
 
-p {
-    margin-bottom: 1em; 
+a:hover {
+    color: var(--accent-orange);
+}
+
+main {
+    padding: 30px 50px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 /* ==================================== */
-/* 2. رأس الصفحة (Header & Navigation) - تنسيق أفضل للوضوح والمرونة */
+/* 2. تنسيق شريط التنقل (Header) */
 /* ==================================== */
 header {
     background-color: var(--primary-dark);
-    color: var(--bg-white);
-    padding: 15px 50px; 
+    color: white;
+    padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky; 
-    top: 0;
-    z-index: 1000;
-    border-bottom: 3px solid var(--accent-orange); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    flex-shrink: 0; 
 }
 
 .club-logo {
-    width: 40px; 
-    height: auto;
-    margin-left: 10px;
+    height: 40px;
+    margin-left: 15px;
 }
 
 header h1 {
-    font-size: 18px; 
-    color: white; 
-    margin: 0;
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-}
-
-nav {
-    /* يسمح للقائمة بالتوسط */
-    flex-grow: 1; 
-    text-align: center;
-    margin: 0 20px; 
+    font-size: 20px;
+    white-space: nowrap;
 }
 
 nav a {
-    color: var(--bg-white);
-    text-decoration: none;
-    margin: 0 15px; 
-    padding: 5px 0;
-    transition: color 0.3s;
-    font-size: initial; /* حجم خط طبيعي وواضح */
+    color: white;
+    margin-right: 20px;
+    padding: 8px 0;
+    font-weight: 500;
+    position: relative;
 }
 
-nav a:hover, nav a.active {
-    color: var(--accent-orange); 
-    border-bottom: 2px solid var(--accent-orange);
+nav a.active::after,
+nav a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-orange);
+    transition: width 0.3s ease;
 }
 
-/* زر الانضمام (CTA Button) */
+nav a.active::after {
+    width: 100%;
+}
+
 .cta-button {
     background-color: var(--accent-orange);
     color: var(--primary-dark) !important;
-    padding: 8px 15px; 
-    border-radius: 5px; 
-    font-weight: bold; 
-    text-decoration: none !important;
-    transition: opacity 0.3s;
-    flex-shrink: 0; 
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    opacity: 0.8;
+    background-color: #ffb74d;
 }
-
-.link-small {
-    padding: 8px 15px !important;
-    font-size: 14px;
-}
-
 
 /* ==================================== */
-/* 3. تنسيق المحتوى الرئيسي العام */
+/* 3. تنسيق الأقسام الرئيسية والعناوين */
 /* ==================================== */
-main {
-    padding: 40px 50px; 
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .page-header {
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 40px;
-}
-
-.hero {
     text-align: center;
-    padding: 60px 40px; 
-    background-color: var(--bg-light); 
-    border-radius: 8px;
-    margin-bottom: 50px;
-}
-
-.hero h2 {
-    font-size: 36px;
-}
-
-/* 3.5 تنسيق الشعار الكبير في صفحة البطل (index.html) */
-.hero-logo {
-    width: 100%;
-    max-width: 250px; 
-    height: auto;
-    margin-bottom: 25px;
-    padding: 15px; 
-    background-color: var(--bg-white); 
-    border-radius: 50%;
-    border: 5px solid var(--accent-orange); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-}
-
-
-/* تنسيق العناوين والبطاقات */
-.achievements h3, .weekly-personality .section-title, .past-events h3, .upcoming-events h3 {
-    font-size: 24px;
-    border-bottom: 2px solid var(--accent-orange);
-    display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 30px;
-}
-
-.card-container {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 20px; 
-    justify-content: flex-start; 
-}
-
-.card {
-    background-color: var(--bg-light);
-    padding: 20px;
-    border-radius: 8px;
-    width: calc(50% - 10px); 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-/* تنسيق لصفحات "عن النادي" */
-.club-vision p {
-    font-size: 16px;
-    max-width: 900px;
-    margin-right: 0;
-}
-
-
-/* ==================================== */
-/* 4. تنسيق قسم شخصية الأسبوع */
-/* ==================================== */
-.weekly-personality {
-    margin-top: 60px;
-    padding: 40px 0;
-    text-align: center;
-}
-
-.weekly-personality .section-title {
-    font-size: 30px; 
-    border-bottom: 3px solid var(--accent-orange);
-    display: inline-block;
-    padding-bottom: 5px;
     margin-bottom: 40px;
+    padding: 30px;
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.page-header h2 {
     color: var(--primary-dark);
-}
-
-.personality-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: var(--bg-light);
-    border-radius: 15px; 
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 30px; 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
-    text-align: right;
-}
-
-.image-placeholder {
-    flex-basis: 30%; 
-    margin-left: 30px;
-}
-
-.person-photo {
-    width: 100%;
-    max-width: 180px; 
-    height: auto;
-    border-radius: 50%; 
-    border: 5px solid var(--accent-orange); 
-    object-fit: cover;
-}
-
-.person-details {
-    flex-basis: 70%;
-    text-align: right;
-}
-
-.person-details h4 {
-    color: var(--accent-orange);
-    font-size: 28px; 
-    margin-bottom: 5px;
-}
-
-.person-details .role {
-    font-weight: bold;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-    border-bottom: 2px dashed var(--bg-white); 
-    padding-bottom: 10px;
-}
-
-.person-details .quote {
-    font-style: italic;
-    font-size: 17px;
     margin-bottom: 10px;
-    color: #555;
+    font-size: 32px;
 }
 
-.achievements-list {
-    list-style-type: none; 
-    padding: 0;
-    margin-top: 15px;
+.page-header p {
+    color: #666;
+    font-size: 18px;
+}
+
+section h3 {
+    font-size: 24px;
+    color: var(--accent-orange);
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-.achievements-list li {
-    background-color: var(--bg-white); 
-    color: var(--primary-dark);
-    padding: 8px 15px;
-    margin-bottom: 8px;
-    border-right: 3px solid var(--accent-orange); 
-    border-radius: 4px;
-    font-size: 15px;
+/* ==================================== */
+/* 4. تنسيق البطاقات (Cards) والمحتوى المتعدد الأعمدة */
+/* ==================================== */
+.card-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
+.card {
+    background-color: var(--bg-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h4 {
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.event-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.event-photo-grid img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease;
+}
+
+.event-photo-grid img:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
 
 /* ==================================== */
-/* 5. تنسيق الهيكل التنظيمي (Org Chart) */
+/* 5. تنسيق الهيكل التنظيمي (Org Chart) - المحدث */
 /* ==================================== */
 .org-chart {
     padding-top: 40px;
     margin-top: 40px;
-    border-top: 1px dashed #ccc; 
 }
 
 .org-chart h3 {
@@ -293,20 +202,34 @@ main {
     color: var(--accent-orange); 
 }
 
+.org-chart .section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    font-size: 17px;
+    color: #555;
+}
+
 .org-leadership {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
-    gap: 10px;
-    margin-bottom: 40px;
+    gap: 15px; 
+    margin-bottom: 60px; 
 }
 
 .role-box {
-    padding: 10px 20px;
-    border-radius: 20px; 
+    padding: 12px 25px; 
+    border-radius: 25px; 
     font-weight: bold;
     text-align: center;
-    min-width: 250px;
+    min-width: 280px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease;
+}
+
+.role-box:hover {
+    transform: translateY(-5px); 
 }
 
 .primary-role {
@@ -314,27 +237,42 @@ main {
     color: white;
 }
 
+.primary-role p {
+    font-size: 14px;
+    margin-bottom: 3px;
+    opacity: 0.8;
+}
+
+.primary-role h4 {
+    color: white;
+    font-size: 22px;
+    margin: 0;
+}
+
 .committees-container {
     display: flex;
     flex-wrap: wrap; 
-    gap: 20px;
+    gap: 25px; 
     justify-content: center;
 }
 
 .committee {
-    width: 250px; 
+    width: 280px; 
     text-align: center;
     border: 1px solid var(--bg-light);
-    border-radius: 8px;
+    border-radius: 10px; 
     padding-bottom: 15px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); 
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08); 
+    background-color: var(--bg-white);
+    overflow: hidden;
 }
 
 .committee-head {
-    padding: 10px;
-    border-radius: 8px 8px 0 0; 
+    padding: 12px;
+    border-radius: 9px 9px 0 0; 
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px; 
+    font-size: 18px;
 }
 
 .accent-role {
@@ -345,179 +283,143 @@ main {
 .committee-members {
     list-style: none; 
     padding: 0 10px;
+    text-align: center;
 }
 
 .committee-members li {
-    padding: 6px 0;
-    border-bottom: 1px dotted var(--bg-light);
+    padding: 5px 0;
     color: var(--primary-dark);
-}
-
-/* ==================================== */
-/* 6. تنسيق شبكة صور الفعاليات (events.html) */
-/* ==================================== */
-.card.event-card-with-grid {
-    padding: 20px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    background-color: var(--bg-white); 
-}
-
-.event-photo-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px; 
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
-
-.event-photo-grid img {
-    width: calc(50% - 3px); 
-    height: 100px; 
-    object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid var(--accent-orange); 
-    transition: transform 0.3s;
-}
-
-.event-photo-grid img:hover {
-    transform: scale(1.03); 
+    font-size: 15px;
 }
 
 
 /* ==================================== */
-/* 7. تنسيق صفحة التواصل والانضمام (contact.html) */
+/* 6. تنسيق نموذج التواصل (Contact Form) */
 /* ==================================== */
-
-.join-form {
-    max-width: 600px; 
-    margin: 40px auto;
+.join-form, .contact-info {
+    background-color: var(--bg-white);
     padding: 30px;
-    background-color: var(--bg-light); 
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
 }
 
-.join-form .form-title {
-    text-align: center;
+.form-title {
     color: var(--accent-orange);
+    text-align: center;
+    margin-bottom: 25px;
     border-bottom: 2px solid var(--primary-dark);
     padding-bottom: 10px;
-    margin-bottom: 25px;
-    font-size: 26px;
 }
 
-.join-form label {
+form label {
     display: block;
-    font-weight: bold;
+    margin-bottom: 8px;
     margin-top: 15px;
-    margin-bottom: 5px;
+    font-weight: bold;
     color: var(--primary-dark);
 }
 
-/* تنسيق حقول الكتابة لجعلها بارزة */
-.join-form input[type="text"],
-.join-form input[type="email"] {
+form input[type="text"],
+form input[type="email"],
+form textarea {
     width: 100%;
-    padding: 14px; 
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px; 
-    background-color: var(--bg-white); 
-    font-size: 16px;
-    transition: border-color 0.3s, box-shadow 0.3s; 
-}
-
-/* تأثير بارز عند الكتابة داخل الحقل */
-.join-form input[type="text"]:focus,
-.join-form input[type="email"]:focus {
-    border-color: var(--accent-orange);
-    box-shadow: 0 0 8px rgba(253, 176, 76, 0.5); 
-    outline: none; 
-}
-
-/* زر الإرسال بنفس تنسيق cta-button */
-.join-form button[type="submit"] {
-    margin-top: 20px;
-    width: 100%;
-    font-size: 18px;
     padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
-.contact-info {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    border: 1px dashed #ccc;
-    border-radius: 8px;
+.join-form .cta-button {
+    display: block;
+    width: 100%;
     text-align: center;
+    margin-top: 30px;
+    padding: 15px 0;
+    font-size: 18px;
 }
 
-.contact-info h3 {
+/* ==================================== */
+/* 7. تنسيق بطاقة شخصية الأسبوع (Weekly Personality) */
+/* ==================================== */
+.weekly-personality {
+    margin-bottom: 40px;
+}
+
+.personality-card {
+    display: flex;
+    background-color: var(--bg-white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    align-items: center;
+}
+
+.image-placeholder {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 50%; /* لجعل الصورة دائرية */
+    margin-left: 30px;
+    flex-shrink: 0;
+    border: 5px solid var(--accent-orange);
+}
+
+.person-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.person-details {
+    flex-grow: 1;
+}
+
+.person-details h4 {
     color: var(--primary-dark);
+    font-size: 26px;
+    margin-bottom: 5px;
 }
 
-.contact-info ul {
+.person-details p {
+    color: #666;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.achievements-list {
     list-style: none;
     padding: 0;
-    margin-top: 15px;
 }
 
-.contact-info li {
-    padding: 5px 0;
+.achievements-list li {
+    padding: 8px 0;
+    border-right: 4px solid var(--accent-orange);
+    padding-right: 15px;
+    margin-bottom: 8px;
+    background-color: var(--bg-light);
+    border-radius: 4px;
+    font-size: 16px;
 }
 
 /* ==================================== */
-/* 8. التذييل (Footer) */
-/* ==================================== */
-footer {
-    background-color: var(--primary-dark);
-    color: var(--bg-white);
-    text-align: center;
-    padding: 15px;
-    margin-top: 50px;
-    border-top: 3px solid var(--accent-orange); 
-}
-
-/* تنسيق البريد الإلكتروني في التذييل */
-footer .footer-email {
-    color: var(--bg-white); 
-    text-decoration: underline;
-    font-weight: normal;
-}
-
-footer .footer-email:hover {
-    color: var(--accent-orange);
-}
-
-footer p {
-    margin-bottom: 5px; 
-}
-
-.social-links {
-    margin-top: 10px;
-}
-
-.social-links a {
-    color: var(--accent-orange);
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-}
-/* ==================================== */
-/* 8.1 تنسيق قسم باركود Linktree */
+/* 8. تنسيق الباركود (Linktree QR Code) - مُضاف حديثاً */
 /* ==================================== */
 .linktree-qr {
     text-align: center; /* توسيط النص والصورة */
     padding: 30px;
-    background-color: #f0f0f0; /* خلفية فاتحة للتمييز */
+    background-color: var(--bg-white); 
     border-radius: 8px;
     margin-bottom: 25px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* ظل خفيف */
+    border: 1px solid #eee;
 }
 
 .linktree-qr h3 {
-    color: #333;
+    color: var(--primary-dark);
     margin-bottom: 5px;
+    border-bottom: none;
 }
 
 .qr-code-img {
@@ -526,28 +428,32 @@ footer p {
     border: 5px solid #fff; /* إطار أبيض حول الباركود */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+    border-radius: 8px;
+}
+
+
+/* ==================================== */
+/* 9. تنسيق الفوتر (Footer) */
+/* ==================================== */
+footer {
+    background-color: var(--primary-dark);
+    color: #f4f4f4;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: var(--accent-orange) !important;
 }
 
 /* ==================================== */
-/* تنسيق الجوال (يتم وضعه داخل Media Query) */
+/* 10. تنسيقات الاستجابة للشاشات الصغيرة (الجوال) */
 /* ==================================== */
 
 @media (max-width: 768px) {
-    /* ... باقي تنسيقات الجوال ... */
-
-    /* أضيفي هذا السطر أيضاً داخل قوس { } الخاص بـ @media */
-    .qr-code-img {
-        max-width: 150px; /* تصغير حجم الباركود على الجوال ليناسب الشاشة */
-    }
-
-    /* ... نهاية تنسيقات الجوال ... */
-}
-/* ==================================== */
-/* 9. تنسيقات الاستجابة للشاشات الصغيرة (الجوال) - نسخة محسنة */
-/* ==================================== */
-
-@media (max-width: 768px) {
-    /* 9.1 تعديل عام للمسافات */
+    /* 10.1 تعديل عام للمسافات */
     header {
         padding: 10px 15px;
     }
@@ -556,25 +462,24 @@ footer p {
         padding: 20px 10px; 
     }
 
-    /* 9.2 تنسيق شريط التنقل (Header) - ترتيب أفضل */
+    /* 10.2 تنسيق شريط التنقل (Header) */
     header {
-        flex-direction: column; /* تحويل العرض إلى عمودي */
-        align-items: flex-start; /* ليكون النص على اليمين */
+        flex-direction: column; 
+        align-items: flex-start; 
     }
 
     .logo-container {
         width: 100%;
-        justify-content: flex-start; /* الشعار والنص يبدأ من اليمين */
+        justify-content: flex-start; 
         margin-bottom: 5px;
     }
 
     header h1 {
         font-size: 16px;
-        white-space: normal; /* السماح للنص بالنزول على أكثر من سطر */
+        white-space: normal; 
         text-overflow: clip; 
     }
     
-    /* جعل الروابط تظهر تحت بعض أو بتنسيق كتلة (Block) */
     nav {
         width: 100%;
         text-align: right;
@@ -583,14 +488,17 @@ footer p {
     }
     
     nav a {
-        display: block; /* كل رابط في سطر منفصل */
+        display: block; 
         font-size: 14px;
-        margin: 5px 0; /* مسافة بين الروابط العمودية */
+        margin: 5px 0; 
         padding: 5px 0;
-        border-bottom: 1px dotted rgba(255, 255, 255, 0.3); /* خط فاصل خفيف */
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.3); 
+    }
+
+    nav a.active::after, nav a:hover::after {
+        display: none; /* إخفاء الخط السفلي على الجوال */
     }
     
-    /* زر الانضمام (CTA) */
     .cta-button {
         width: 100%; 
         text-align: center;
@@ -598,7 +506,7 @@ footer p {
         padding: 10px 0;
     }
     
-    /* 9.3 تنسيق البطاقات (الفعاليات والإنجازات) */
+    /* 10.3 تنسيق البطاقات */
     .card-container {
         flex-direction: column;
         gap: 15px;
@@ -608,31 +516,23 @@ footer p {
         width: 100%;
     }
 
-    /* 9.4 تنسيق قسم شخصية الأسبوع - لضمان عدم التداخل */
-    .weekly-personality {
-        text-align: center;
-    }
-    
+    /* 10.4 تنسيق قسم شخصية الأسبوع */
     .personality-card {
-        flex-direction: column; /* جعل الصورة والتفاصيل تحت بعض */
+        flex-direction: column;
         padding: 20px;
-        text-align: center; /* وضع التفاصيل في المنتصف مؤقتاً */
+        text-align: center;
     }
     
     .image-placeholder {
         margin-bottom: 20px;
         margin-left: 0;
     }
-
-    .person-details {
-        text-align: right; /* إعادة النص إلى اليمين */
-    }
     
     .person-photo {
         max-width: 150px;
     }
 
-    .achievements-list {
+    .person-details {
         text-align: right;
     }
     
@@ -643,21 +543,45 @@ footer p {
         font-size: 15px;
     }
 
-    /* 9.5 تنسيق شبكة الصور والنماذج */
-    .event-photo-grid img {
-        height: 70px; 
+    /* 10.5 تنسيق الهيكل التنظيمي (Org Chart) */
+    .org-leadership {
+        gap: 10px;
+        margin-bottom: 40px;
     }
 
+    .role-box {
+        min-width: 90%;
+        padding: 10px 20px;
+    }
+
+    .primary-role h4 {
+        font-size: 20px;
+    }
+    
     .committees-container {
-        flex-direction: column;
+        flex-direction: column; 
         align-items: center;
+        gap: 15px;
     }
 
     .committee {
-        width: 100%;
+        width: 90%;
+    }
+
+    .committee-head {
+        font-size: 16px;
     }
     
-    .join-form {
-        margin: 20px 0;
+    /* 10.6 تنسيق الباركود */
+    .qr-code-img {
+        max-width: 150px; 
+    }
+
+    /* 10.7 تنسيق شبكة صور الفعاليات */
+    .event-photo-grid {
+        grid-template-columns: repeat(2, 1fr); /* عرض صورتين فقط في الصف */
+    }
+    .event-photo-grid img {
+        height: 120px;
     }
 }
