@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تواصل معنا - نادي إدراك للتميز الفكري والمهاري</title>
+    <title>نادي إدراك - تواصل معنا</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,65 +16,62 @@
         <nav>
             <a href="index.html">الرئيسية</a>
             <a href="about.html">عن النادي</a>
-            <a href="events.html">فعالياتنا</a>
+            <a href="events.html">الفعاليات</a>
             <a href="contact.html" class="active">تواصل معنا</a>
         </nav>
-        <a href="contact.html" class="cta-button">انضم إلينا</a>
+        <a href="contact.html" class="cta-button active">انضم إلينا</a>
     </header>
 
     <main>
+        
         <section class="page-header">
-            <h2>تواصل معنا وانضم لفريق إدراك</h2>
-            <p>سواء كنت ترغب في الانضمام إلى عائلة نادي إدراك، أو لديك استفسار أو اقتراح، يسعدنا تواصلك معنا.</p>
+            <h2>انضم إلينا وتواصل معنا</h2>
+            <p>سواء كنت ترغب في الانضمام كعضو أو لديك استفسار، يسعدنا تواصلك مع فريقنا.</p>
         </section>
 
         <div class="join-form">
-            <h3 class="form-title">نموذج طلب الانضمام للنادي</h3>
-            
-            <form action="https://formsubmit.co/ajax/edrkclubmu@gmail.com" method="POST">
-                
-                <input type="hidden" name="_subject" value="طلب انضمام جديد لنادي إدراك">
-                
-                <input type="hidden" name="_next" value="https://[اسم_المستخدم_الجديد].github.io/[اسم_المستودع]/index.html">
+            <h3 class="form-title">نموذج الانضمام والتواصل</h3>
 
+            <form action="https://formsubmit.co/your-email@example.com" method="POST">
+                
+                <input type="hidden" name="_next" value="https://your-club-url.github.io/index.html">
+                
                 <label for="name">الاسم الثلاثي:</label>
-                <input type="text" id="name" name="الاسم" required>
+                <input type="text" id="name" name="الاسم" placeholder="اكتبي اسمك الثلاثي هنا..." required>
 
-                <label for="email">البريد الجامعي (أو الشخصي):</label>
-                <input type="email" id="email" name="البريد الإلكتروني" required>
+                <label for="student-id">الرقم الجامعي:</label>
+                <input type="text" id="student-id" name="الرقم الجامعي" placeholder="أدخلي رقمك الجامعي..." required>
 
-                <label for="major">التخصص:</label>
-                <input type="text" id="major" name="التخصص" required>
+                <label for="email">البريد الإلكتروني:</label>
+                <input type="email" id="email" name="البريد الإلكتروني" placeholder="your-email@example.com" required>
+
+                <label for="message">رسالتك / سبب رغبتك في الانضمام:</label>
+                <textarea id="message" name="الرسالة" rows="5" placeholder="اكتبي رسالتك هنا..." required></textarea>
 
                 <button type="submit" class="cta-button">إرسال طلب الانضمام</button>
             </form>
         </div>
-        <div class="linktree-qr">
-            <h3>مسح الباركود للانتقال لملف النادي الشامل</h3>
-            <p>يمكنك مسح هذا الباركود للوصول المباشر إلى جميع حسابات وفعاليات النادي على Linktree.</p>
-            
-            <img src="images/linktree-qr.png" alt="باركود نادي إدراك Linktree" class="qr-code-img">
-        </div>
 
-        <div class="contact-info">
-           
+        <section class="linktree-qr">
+            <h3>جميع حساباتنا في مكان واحد</h3>
+            <p>يمكنك مسح الباركود للوصول المباشر إلى منصات النادي الاجتماعية.</p>
+            <img src="images/linktree-qr.png" alt="باركود جميع حسابات النادي" class="qr-code-img">
+        </section>
 
-        <div class="contact-info">
-            <h3>طرق التواصل الأخرى:</h3>
-            <ul>
-                <li><strong>البريد الإلكتروني:</strong> <a href="mailto:edrkclubmu@gmail.com">edrkclubmu@gmail.com</a></li>
-                <li><strong>تويتر (X):</strong> EdrakClub_MU</li>
-                <li><strong>هاتف (مشرفة/مسؤول):</strong> 05X-XXX-XXXX</li>
-            </ul>
-        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 نادي إدراك للتميز الفكري والمهاري - جامعة المجمعة.</p>
-        <p>للتواصل: <a href="mailto:edrkclubmu@gmail.com" class="footer-email">edrkclubmu@gmail.com</a></p>
+        
+        <p>
+            <strong>للتواصل:</strong> 
+            <a href="mailto:edrkclubmu@gmail.com" class="footer-email">edrkclubmu@gmail.com</a>
+        </p>
+
         <div class="social-links">
-            <a href="#">X (تويتر)</a> | 
-            <a href="#">إنستغرام</a>
+            <a href="https://x.com/EdrkClubMU" target="_blank">X (Twitter)</a> |
+            <a href="#" target="_blank">Instagram</a> |
+            <a href="#" target="_blank">Telegram</a>
         </div>
     </footer>
 
