@@ -16,7 +16,8 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    /* تم تحديث الخط ليكون أكثر حداثة ومرونة في العرض العربي */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Arabic", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     color: var(--text-color);
     background-color: var(--bg-light);
     line-height: 1.6;
@@ -108,8 +109,47 @@ nav a.active::after {
 }
 
 /* ==================================== */
-/* 3. تنسيق الأقسام الرئيسية والعناوين */
+/* 3. تنسيق الأقسام الرئيسية وعنوان الصفحة */
 /* ==================================== */
+
+/* 3.1 تنسيق صفحة البطل (Hero - Index.html) - تم تحسين الترتيب */
+.hero {
+    text-align: center;
+    padding: 60px 40px; 
+    background-color: var(--bg-white); 
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.hero-logo {
+    width: 100%;
+    max-width: 280px;  /* حجم معقول لشعار مركزي */
+    height: auto;
+    margin-bottom: 30px;
+    padding: 20px; 
+    background-color: var(--bg-light);  /* خلفية فاتحة حول الشعار */
+    border-radius: 50%;
+    border: 5px solid var(--accent-orange); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    /* ضمان التوسيط التام */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero h2 {
+    font-size: 38px;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+}
+.hero p {
+    font-size: 20px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+}
+
 .page-header {
     text-align: center;
     margin-bottom: 40px;
@@ -171,14 +211,12 @@ section h3 {
 
 /* تنسيق بطاقة الفعالية مع شبكة الصور */
 .card.event-card-with-grid {
-    /* السماح للبطاقة بأن تكون مرنة */
     flex: 1; 
     min-width: 350px;
 }
 
 .event-photo-grid {
     display: grid;
-    /* على شاشات الكمبيوتر، 4 صور في الصف */
     grid-template-columns: repeat(4, 1fr); 
     gap: 10px;
     margin-top: 20px;
@@ -470,8 +508,13 @@ footer a {
         padding: 20px 10px; 
     }
     
-    .page-header h2 {
+    .page-header h2, .hero h2 {
         font-size: 28px;
+    }
+
+    .hero-logo {
+        max-width: 200px; /* تصغير الشعار الرئيسي قليلاً */
+        padding: 15px;
     }
 
     /* 9.2 تنسيق شريط التنقل (Header) */
@@ -526,10 +569,10 @@ footer a {
 
     .card {
         width: 100%;
-        min-width: unset; /* إلغاء الحد الأدنى للعرض */
+        min-width: unset;
     }
     .card.event-card-with-grid {
-        min-width: unset; /* إلغاء الحد الأدنى للعرض */
+        min-width: unset;
     }
 
     /* 9.4 تنسيق قسم شخصية الأسبوع */
@@ -546,10 +589,6 @@ footer a {
         height: 150px;
     }
     
-    .person-photo {
-        max-width: 100%;
-    }
-
     .person-details {
         text-align: right;
     }
@@ -582,7 +621,6 @@ footer a {
 
     /* 9.7 تنسيق شبكة صور الفعاليات */
     .event-photo-grid {
-        /* عرض صورتين فقط في الصف بدلاً من 4 */
         grid-template-columns: repeat(2, 1fr); 
     }
     .event-photo-grid img {
